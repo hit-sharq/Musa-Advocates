@@ -1,0 +1,3 @@
+import { ChevronRight } from 'lucide-react'
+import { ContactCta, PageIntro, PageShell, insights } from '@/components/site-chrome'
+export default function InsightsPage(){return <PageShell><PageIntro eyebrow="FROM OUR INSIGHTS" title="Legal perspective, made accessible." text="Practical explainers and updates on Kenyan law, rights, business and justice."/><section className="section"><div className="shell insights-grid">{insights.map((item)=><article className="insight-card" key={item.title}><span className="insight-tag">{item.tag}</span><h3>{item.title}</h3><p>{item.text}</p><a href={`/insights/${item.slug}`}>Read the guide <ChevronRight size={15}/></a></article>)}</div></section><ContactCta/></PageShell>}

@@ -1,0 +1,14 @@
+import { notFound } from 'next/navigation'
+import { ContactCta, PageShell, insights } from '@/components/site-chrome'
+
+const articles: Record<string, { body: string[] }> = {
+  'norwich-pharmacal-orders-kenya': { body: ['Kenyan courts have jurisdiction to issue orders compelling an innocent third party caught up in wrongdoing to provide relevant information.', 'These applications are procedural and evidence-led. The applicant should clearly identify the wrongdoing, explain why the third party is involved, and show why the information sought is necessary.', 'Every matter is fact-specific. Early advice can help preserve evidence and frame an application that is proportionate and properly supported.'] },
+  'divorce-judicial-separation-kenya': { body: ['When a marriage becomes difficult or unsustainable, Kenyan law provides legal mechanisms through which spouses may address the breakdown.', 'Divorce and judicial separation involve important questions about evidence, children, finances and matrimonial property. A confidential consultation helps clarify the appropriate path.', 'Our family law team approaches sensitive matters with discretion, preparation and respect for each client’s circumstances.'] },
+  'enforce-foreign-judgment-kenya': { body: ['A foreign judgment may need to be recognised and enforced in Kenya before it can be acted on locally.', 'The process may involve certified court documents, questions of jurisdiction, applicable treaties or statutory procedure, and careful compliance with Kenyan court rules.', 'Businesses and individuals should obtain advice early, particularly where limitation periods, assets or opposing-party objections may affect recovery.'] },
+}
+
+export function generateStaticParams() { return insights.map((item) => ({ slug: item.slug })) }
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const article = insights.find((item) => item.slug === slug); return article ? { title: `${article.title} | Musa & Musa Advocates`, description: article.text } : {} }
+
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const article = insights.find((item) => item.slug === slug); const content = articles[slug]; if (!article || !content) notFound(); return <PageShell><main><section className="page-intro"><div className="shell"><p className="eyebrow">{article.tag}</p><h1>{article.title}</h1><p>{article.text}</p></div></section><article className="article-body shell"><img src="/svg/legal-scales.svg" alt="Legal scales representing balanced justice" /><div>{content.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<a className="button button-blue" href="/contact">Discuss your matter</a></div></article></main><ContactCta /></PageShell> }
