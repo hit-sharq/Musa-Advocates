@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { ArrowUpRight, Check, ChevronRight, Mail, MapPin, Phone, Scale, ShieldCheck } from 'lucide-react'
 import { ArticleCard } from '@/components/ui/article-card'
+import { MobileNavigation } from '@/components/mobile-navigation'
 import { practices, insights } from '@/components/site-chrome'
 
 const values = [
@@ -17,6 +18,7 @@ export default function Page() {
         <a className="brand" href="#top" aria-label="Musa and Musa Advocates home"><Image src="/images/logo.png" width={56} height={56} alt="Musa and Musa Advocates crest" /><span><strong>Musa &amp; Musa</strong><small>ADVOCATES</small></span></a>
         <nav className="desktop-nav" aria-label="Primary navigation"><a href="/about">About</a><a href="/practice-areas">Practice Areas</a><a href="/team">Our Team</a><a href="/insights">Insights</a><a href="/contact">Contact</a></nav>
         <a className="button button-dark nav-cta" href="https://www.musadvocates.co.ke/contact">Book a consultation <ArrowUpRight size={16} /></a>
+        <MobileNavigation />
       </div></header>
 
       <section className="hero" id="top"><div className="shell hero-grid">
