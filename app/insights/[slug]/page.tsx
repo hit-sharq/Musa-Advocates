@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const article = insights.find((item) => item.slug === slug)
   if (!article) return { title: 'Not Found' }
-  const url = `https://musadvocates.co.ke/insights/${slug}`
+  const url = `https://blog.musadvocates.co.ke/insights/${slug}`
   return {
     title: `${article.title} | Musa & Musa Advocates`,
     description: article.text,
@@ -49,7 +49,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const content = articles[slug]
   if (!article || !content) notFound()
 
-  const url = `https://musadvocates.co.ke/insights/${slug}`
+  const url = `https://blog.musadvocates.co.ke/insights/${slug}`
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -58,15 +58,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     description: article.text,
     image: article.image ?? '/images/logo.png',
     author: { '@type': 'Organization', 'name': 'Musa & Musa Advocates' },
-    publisher: { '@type': 'Organization', 'name': 'Musa & Musa Advocates', 'logo': { '@type': 'ImageObject', 'url': 'https://musadvocates.co.ke/images/logo.png' } },
+    publisher: { '@type': 'Organization', 'name': 'Musa & Musa Advocates', 'logo': { '@type': 'ImageObject', 'url': 'https://blog.musadvocates.co.ke/images/logo.png' } },
     datePublished: article.date,
     dateModified: article.modified,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   }
 
   const breadcrumbs = [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://musadvocates.co.ke' },
-    { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://musadvocates.co.ke/insights' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://blog.musadvocates.co.ke' },
+    { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://blog.musadvocates.co.ke/insights' },
     { '@type': 'ListItem', position: 3, name: article.title, item: url },
   ]
 

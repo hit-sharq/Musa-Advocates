@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { insights } from '@/components/site-chrome'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = 'https://musadvocates.co.ke'
+  const base = 'https://blog.musadvocates.co.ke'
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: '2026-08-20', changeFrequency: 'weekly', priority: 1 },

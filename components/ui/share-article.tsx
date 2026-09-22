@@ -4,7 +4,7 @@ import { Share2 } from 'lucide-react'
 
 export default function ShareArticle({ slug, title }: { slug: string; title: string }) {
   const handleShare = async () => {
-    const url = `https://musadvocates.co.ke/insights/${slug}`
+    const url = `https://blog.musadvocates.co.ke/insights/${slug}`
     try {
       if (navigator.share) { await navigator.share({ title, url }) }
       else if (navigator.clipboard) { await navigator.clipboard.writeText(url) }
