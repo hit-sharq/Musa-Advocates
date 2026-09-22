@@ -75,7 +75,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <main>
         <nav aria-label="Breadcrumb" className="breadcrumb-nav"><div className="shell"><ol className="breadcrumb-list"><li><a href="/">Home</a></li><li><a href="/insights">Insights</a></li><li aria-current="page">{article.title}</li></ol></div></nav>
         <section className="page-intro"><div className="shell"><p className="eyebrow">{article.tag}</p><h1>{article.title}</h1><p>{article.text}</p><ShareArticle slug={slug} title={article.title} /></div></section>
-        <article className="article-body shell"><img src="/svg/legal-scales.svg" alt="Legal scales representing balanced justice" /><div>{content.body.map((paragraph, i) => <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} />)}<a className="button button-blue" href="/contact">Discuss your matter</a></div></article>
+        <article className="article-body shell"><img src="/svg/legal-scales.svg" alt="Legal scales representing balanced justice" /><div>{content.body.map((paragraph, i) => <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} />)}<a className="button button-blue" href="https://www.musadvocates.co.ke/contact">Discuss your matter</a></div></article>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbs }) }} />
       </main>
