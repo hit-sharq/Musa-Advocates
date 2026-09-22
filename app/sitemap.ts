@@ -29,12 +29,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/insights/annulment-of-marriage-in-kenya`, lastModified: '2026-08-22', changeFrequency: 'monthly', priority: 0.7 },
   ]
 
-  const practiceAreaUrls = [{
-    url: `${base}/practice-areas`,
-    lastModified: '2026-07-12',
+  const practiceAreas = [
+    { slug: 'civil-litigation', lastMod: '2026-07-12' },
+    { slug: 'immigration-investor-legal-services', lastMod: '2026-04-28' },
+    { slug: 'real-estate-conveyancing-and-land-law', lastMod: '2026-07-12' },
+    { slug: 'family-divorce-law', lastMod: '2026-07-12' },
+    { slug: 'law-of-succession-wills-probate-estate-administration', lastMod: '2026-07-12' },
+    { slug: 'tax-advisory-and-structuring', lastMod: '2026-04-28' },
+    { slug: 'children-law-and-child-adoption', lastMod: '2026-07-12' },
+    { slug: 'accident-personal-injury-law', lastMod: '2026-07-12' },
+    { slug: 'employment-and-labour-relations-law', lastMod: '2026-07-12' },
+    { slug: 'criminal-litigation', lastMod: '2026-04-28' },
+    { slug: 'company-formation-and-restructuring', lastMod: '2026-07-12' },
+    { slug: 'debt-collection-law', lastMod: '2026-07-12' },
+    { slug: 'cryptocurrency-digital-asset-law', lastMod: '2026-08-20' },
+    { slug: 'crypto-digital-currency-law', lastMod: '2026-07-12' },
+  ]
+
+  const practiceAreaUrls = practiceAreas.map(({ slug, lastMod }) => ({
+    url: `${base}/practice-areas/${slug}`,
+    lastModified: lastMod,
     changeFrequency: 'weekly' as const,
-    priority: 0.9,
-  }]
+    priority: 0.8,
+  }))
 
   const teamMembers = [
     { slug: 'susan-moraa-1', lastMod: '2026-05-23' },
