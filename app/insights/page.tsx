@@ -1,3 +1,5 @@
 import { ArticleCard } from '@/components/ui/article-card'
 import { ContactCta, PageIntro, PageShell, insights } from '@/components/site-chrome'
-export default function InsightsPage(){return <PageShell><PageIntro eyebrow="FROM OUR INSIGHTS" title="Legal perspective, made accessible." text="Practical explainers and updates on Kenyan law, rights, business and justice."/><section className="section"><div className="shell insights-grid">{insights.map((item)=><ArticleCard key={item.slug} slug={item.slug} title={item.title} tag={item.tag} text={item.text} image={item.image} />)}</div></section><ContactCta/></PageShell>}
+export default function InsightsPage(){return <PageShell><PageIntro eyebrow="FROM OUR INSIGHTS" title="Legal perspective, made accessible." text="Practical explainers and updates on Kenyan law, rights, business and justice."/><section className="section"><div className="shell insights-grid">{insights.map((item)=><ArticleCard key={item.slug} slug={item.slug} title={item.title} tag={item.tag} text={item.text} image={item.image} date={item.date} />)}</div></section><ContactCta/></PageShell>}
+
+

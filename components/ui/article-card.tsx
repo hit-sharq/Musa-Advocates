@@ -11,6 +11,7 @@ interface ArticleCardProps {
   text: string
   readTime?: string
   image?: string
+  date?: string
   className?: string
 }
 
@@ -42,7 +43,7 @@ function ShareButton({ slug, title }: { slug: string; title: string }) {
   )
 }
 
-export function ArticleCard({ slug, title, tag, text, readTime, image, className }: ArticleCardProps) {
+export function ArticleCard({ slug, title, tag, text, readTime, image, date, className }: ArticleCardProps) {
   return (
     <article className={cn('article-card', className)}>
       <div className="article-card-top">
@@ -56,6 +57,7 @@ export function ArticleCard({ slug, title, tag, text, readTime, image, className
       <div className="article-card-body">
         <h3>{title}</h3>
         <p>{text}</p>
+        {date && <span className="article-card-date">{new Date(date).toLocaleDateString('en-KE', { day: 'numeric', month: 'short', year: 'numeric' })}</span>}
         {readTime && <span className="article-card-readtime">{readTime}</span>}
       </div>
       <div className="article-card-footer">
